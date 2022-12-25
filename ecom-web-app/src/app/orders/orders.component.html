@@ -1,0 +1,18 @@
+<div class="container p-4">
+  <table class="table table-hover table-bordered table-striped" *ngIf="orders">
+    <thead class="text-center bg-secondary">
+    <tr>
+      <th>ID</th> <th>Date</th> <th>Status</th> <th>CustomerId</th> <th>orderDetails</th>
+    </tr>
+    </thead>
+    <tbody class="text-center">
+    <tr *ngFor="let o of orders._embedded.orders">
+      <td>{{o.id}}</td>
+      <td>{{o.createdAt}}</td>
+      <td>{{o.status}}</td>
+      <td>{{o.customerId}}</td>
+      <td><button class="btn btn-success" (click)="getOrderDetails(o.id)">orderDetails</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
